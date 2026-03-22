@@ -20,7 +20,30 @@
 - Projeto antigo identificado: `projeto-24-shift`
 - Dominio atual: `projeto-24-shift.pages.dev`
 - Source: GitHub repo `Projeto-24-shift` (owner `edwardfishbr`)
-- Nao foi detectado dominio custom vinculado no endpoint consultado.
+- Branch de producao observada nas ultimas deploys: `main`
+- Nao foi detectado dominio custom vinculado nas consultas realizadas.
+- Variaveis existentes no projeto antigo (production):
+  - `VITE_GA4_ID`
+  - `VITE_STRIPE_LINK_COMBO_DAY_STACK`
+  - `VITE_STRIPE_LINK_CREATINA`
+  - `VITE_STRIPE_LINK_MAGNESIO`
+
+## Estado comparativo novo x antigo
+
+- Projeto novo `24-shift-web`:
+  - Git Provider: `No` (deploy direto via Wrangler)
+  - Branch de deploy atual: `main` (production) e `preview` (preview)
+  - Build/output e env aplicados com sucesso.
+- Projeto antigo `projeto-24-shift`:
+  - Git Provider: `Yes`
+  - Branch de producao: `main`
+
+## Smoke checks (22/03/2026)
+
+- `https://24-shift-web.pages.dev` -> HTTP 200
+- `https://preview.24-shift-web.pages.dev` -> HTTP 200
+- `https://24-shift-api.onrender.com/api/health` -> HTTP 404
+  - conclusao: frontend novo esta no ar, API Render ainda nao foi provisionada/publicada.
 
 ## Pendencia para GitHub integration no projeto novo
 
