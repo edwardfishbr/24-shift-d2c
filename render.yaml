@@ -1,0 +1,48 @@
+services:
+  - type: web
+    name: 24-shift-api
+    runtime: node
+    plan: free
+    autoDeploy: true
+    buildCommand: npm install
+    startCommand: npm run dev:api
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: APP_URL
+        value: https://24-shift-web.pages.dev
+      - key: CORS_ORIGINS
+        value: https://24-shift-web.pages.dev
+      - key: AUTOMATION_WEBHOOK_BASE_URL
+        value: https://24-shift-api.onrender.com/internal/hooks
+      - key: AUTOMATION_INTERNAL_TOKEN
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+      - key: STRIPE_PRICE_CORE
+        sync: false
+      - key: STRIPE_PRICE_END
+        sync: false
+      - key: STRIPE_PRICE_START
+        sync: false
+      - key: STRIPE_PRICE_FLOW
+        sync: false
+      - key: STRIPE_PRICE_COMBO
+        sync: false
+      - key: RATE_LIMIT_WINDOW_MS
+        value: 60000
+      - key: RATE_LIMIT_CONTACT_MAX
+        value: 20
+      - key: RATE_LIMIT_CHECKOUT_MAX
+        value: 30
+      - key: RATE_LIMIT_AUTOMATION_MAX
+        value: 10
+      - key: RATE_LIMIT_WEBHOOK_MAX
+        value: 180

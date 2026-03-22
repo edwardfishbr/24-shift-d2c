@@ -48,7 +48,7 @@ export function getOptionalEnv(env: NodeJS.ProcessEnv = process.env) {
 
   return {
     appUrl,
-    apiPort: parseNumberEnv(env.API_PORT, 4000, 1, 65535),
+    apiPort: parseNumberEnv(env.PORT ?? env.API_PORT, 4000, 1, 65535),
     nodeEnv: env.NODE_ENV ?? "development",
     corsOrigins,
     automationInternalToken: env.AUTOMATION_INTERNAL_TOKEN?.trim() || null,

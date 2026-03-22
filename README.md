@@ -130,6 +130,21 @@ Copie o segredo retornado (`whsec_...`) para `STRIPE_WEBHOOK_SECRET`.
    - `npm run lint && npm run test && npm run build`
    - compra de teste com webhook ativo.
 
+## Deploy (Cloudflare + Render)
+
+- Frontend Cloudflare Pages:
+  - projeto alvo: `24-shift-web`
+  - build command: `npm run build`
+  - output directory: `dist`
+  - env var: `VITE_API_URL=https://<render-api-url>`
+- API Render:
+  - blueprint pronto em `render.yaml`
+  - start command: `npm run dev:api`
+  - health check: `/api/health`
+  - configurar segredos obrigatorios no painel.
+- Detalhes de cutover e analise do projeto antigo:
+  - `docs/cloudflare-cutover.md`
+
 ## Motor interno de automacao
 
 Eventos suportados:
